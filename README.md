@@ -7,14 +7,23 @@ These defaults apply across the organisation, but can be **overridden in an indi
 
 Use the template that best matches the size and intent of the work:
 
-### 🐛 Bug Report
-Use this when something is **broken or behaving incorrectly** in an existing system.
-Include clear reproduction steps, expected vs actual behaviour, and any logs/screenshots.
+### 🗺️ Epic
+Use this for a **large outcome** that will take **multiple sprints** and consists of multiple Features.
+Epics help track progress at a higher level and group related Features together.
 
 Typical examples:
-- A pump fails to start when commanded
-- Telemetry values are incorrect or missing
-- A UI button crashes the app
+- “Remote operations MVP”
+- “Telemetry pipeline v2”
+- “Improved reliability and watchdogs across subsystems”
+
+### 💡 Feature
+Use this for a **user-visible slice of value** (a capability you can describe to a user/customer).
+A Feature should contain a user story and acceptance criteria, and can be broken down into Tasks.
+
+Typical examples:
+- “Add gRPC endpoint to start/stop pump”
+- “Export telemetry to CSV”
+- “Add camera health monitoring page”
 
 ### 🧩 Task
 Use this for a **small, concrete unit of implementation work**, usually completed within a sprint and often as part of a Feature.
@@ -26,23 +35,14 @@ Typical examples:
 
 Best practice: create Tasks as **sub-issues of a Feature** where possible.
 
-### 💡 Feature
-Use this for a **user-visible slice of value** (a capability you can describe to a user/customer).
-A Feature should contain a user story and acceptance criteria, and can be broken down into Tasks.
+### 🐛 Bug Report
+Use this when something is **broken or behaving incorrectly** in an existing system.
+Include clear reproduction steps, expected vs actual behaviour, and any logs/screenshots.
 
 Typical examples:
-- “Add gRPC endpoint to start/stop pump”
-- “Export telemetry to CSV”
-- “Add camera health monitoring page”
-
-### 🗺️ Epic
-Use this for a **large outcome** that will take **multiple sprints** and consists of multiple Features.
-Epics help track progress at a higher level and group related Features together.
-
-Typical examples:
-- “Remote operations MVP”
-- “Telemetry pipeline v2”
-- “Improved reliability and watchdogs across subsystems”
+- A pump fails to start when commanded
+- Telemetry values are incorrect or missing
+- A UI button crashes the app
 
 ## Support
 
