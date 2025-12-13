@@ -1,5 +1,1 @@
 blank_issues_enabled: false
-contact_links: 
-- name: "📧 Support email"
-    url: "mailto:engineering@assetcool.com"
-    about: "For account/support requests not suitable for GitHub issues."
