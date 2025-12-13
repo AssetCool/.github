@@ -1,0 +1,81 @@
+name: "🗺️ Epic"
+description: A multi-sprint outcome made up of features
+title: "🗺️ [EPIC] - <outcome>"
+labels: ["epic"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Epics are outcomes** (usually multi-sprint) delivered through multiple Features.
+        Create Features as sub-issues of this Epic.
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: "Outcome / goal"
+      description: What are we trying to achieve and for whom?
+      placeholder: |
+        Outcome:
+        Users impacted:
+        Why now:
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: "Scope"
+      description: What’s in / out (keep it high-level).
+      placeholder: |
+        In scope:
+        - ...
+        Out of scope:
+        - ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: exit_criteria
+    attributes:
+      label: "Exit criteria (definition of done)"
+      description: Clear conditions for closing the Epic.
+      placeholder: |
+        - All planned Features complete
+        - Success metrics met
+        - Docs/ops notes updated (if applicable)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      options:
+        - "P0 - Critical (blocker)"
+        - "P1 - High"
+        - "P2 - Medium"
+        - "P3 - Low"
+    validations:
+      required: true
+
+  - type: input
+    id: target_window
+    attributes:
+      label: "Target window"
+      description: Optional (e.g. Sprint 14–16, Q1, or a date).
+      placeholder: "e.g. Sprint 14–16"
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies_risks
+    attributes:
+      label: "Dependencies / risks"
+      placeholder: |
+        Dependencies:
+        - ...
+        Risks:
+        - ...
+    validations:
+      required: false

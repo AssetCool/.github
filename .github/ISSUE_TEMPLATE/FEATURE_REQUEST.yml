@@ -1,80 +1,76 @@
-name: "💡 Feature Request"
-description: "Create a new ticket for a new feature request"
-title: "💡 [REQUEST] - "
-labels:
-  - question
+name: "💡 Feature"
+description: A user-visible slice of value (often 1 sprint)
+title: "💡 [FEATURE] - <title>"
+labels: ["feature"]
 
 body:
-  - type: input
-    id: start_date
+  - type: markdown
     attributes:
-      label: "Start Date"
-      description: "Start of development"
-      placeholder: "day/month/year"
-    validations:
-      required: false
+      value: |
+        **Features carry the user story + user-facing acceptance criteria.**
+        Break the Feature into Tasks (as sub-issues).
 
   - type: input
-    id: due_date
+    id: epic_link
     attributes:
-      label: "Due Date"
-      description: "Development deadline"
-      placeholder: "day/month/year"
+      label: "Parent Epic"
+      description: "Optional but recommended. Paste #123 or full URL."
+      placeholder: "#123"
     validations:
       required: false
 
   - type: textarea
-    id: reference_issues
+    id: user_story
     attributes:
-      label: "Reference Issues"
-      description: "Common issues"
-      placeholder: "#Issue IDs"
-    validations:
-      required: false
-
-  - type: textarea
-    id: summary
-    attributes:
-      label: "Summary"
-      description: "Provide a brief explanation of the feature"
-      placeholder: "Describe in a few lines your feature request"
-    validations:
-      required: true
-
-  - type: textarea
-    id: basic_example
-    attributes:
-      label: "Basic Example"
-      description: "Indicate here some basic examples of your feature."
-      placeholder: "A few specific words about your feature request."
+      label: "User story"
+      description: "As a <user>, I want <capability>, so that <benefit>."
+      placeholder: |
+        As a ...
+        I want ...
+        So that ...
     validations:
       required: true
 
   - type: textarea
     id: acceptance_criteria
     attributes:
-      label: "Acceptance Criteria"
-      description: "What are the acceptance criteria for this feature?"
-      placeholder: |-
+      label: "Acceptance criteria"
+      description: "User-facing, testable conditions."
+      placeholder: |
         - AC1:
         - AC2:
+        - AC3:
     validations:
       required: true
 
-  - type: textarea
-    id: drawbacks
+  - type: dropdown
+    id: priority
     attributes:
-      label: "Drawbacks"
-      description: "What are the drawbacks/impacts of your feature request?"
-      placeholder: "Identify the drawbacks and impacts while being neutral on your feature request"
+      label: "Priority"
+      options:
+        - "P0 - Critical (blocker)"
+        - "P1 - High"
+        - "P2 - Medium"
+        - "P3 - Low"
+    validations:
+      required: true
+
+  - type: input
+    id: story_points
+    attributes:
+      label: "Story points"
+      description: "Optional. If you point at Feature level, put points here (not on Tasks)."
+      placeholder: "e.g. 3"
     validations:
       required: false
 
   - type: textarea
-    id: unresolved_question
+    id: notes
     attributes:
-      label: "Unresolved questions"
-      description: "What questions still remain unresolved?"
-      placeholder: "Identify any unresolved issues."
+      label: "Notes / design / links"
+      placeholder: |
+        Context:
+        Approach:
+        Links:
     validations:
       required: false

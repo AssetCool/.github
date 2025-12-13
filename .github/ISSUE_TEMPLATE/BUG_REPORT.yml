@@ -1,60 +1,95 @@
 name: "🐛 Bug Report"
 description: Create a new ticket for a bug.
 title: "🐛 [BUG] - <title>"
-labels: [
-  "bug"
-]
+labels: ["bug"]
+
 body:
   - type: input
-    id: start_date
+    id: related_feature
     attributes:
-      label: "Start Date"
-      description: Start of development
-      placeholder: "day/month/year"
+      label: "Related Feature (optional)"
+      description: "If this bug belongs to a feature, paste #123 or a full issue URL."
+      placeholder: "#123"
     validations:
       required: false
-  - type: input
-    id: due_date
+
+  - type: dropdown
+    id: priority
     attributes:
-      label: "Due Date"
-      description:  Development deadline
-      placeholder: "day/month/year"
+      label: "Priority"
+      options:
+        - "P0 - Critical (blocker)"
+        - "P1 - High"
+        - "P2 - Medium"
+        - "P3 - Low"
     validations:
-      required: false
+      required: true
+
   - type: textarea
     id: description
     attributes:
       label: "Description"
-      description: Please enter an explicit description of your issue
-      placeholder: Short and explicit description of your incident...
+      description: "What’s broken?"
+      placeholder: "Short, explicit description of the problem..."
     validations:
       required: true
+
+  - type: textarea
+    id: expected_vs_actual
+    attributes:
+      label: "Expected vs actual behaviour"
+      placeholder: |
+        Expected:
+        Actual:
+    validations:
+      required: true
+
   - type: textarea
     id: reprod
     attributes:
       label: "Reproduction steps"
-      description: Please enter an explicit description of your issue
       placeholder: |
-        1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error
+        1. ...
+        2. ...
+        3. ...
     validations:
       required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment / version"
+      description: "OS/device, service version, commit SHA, build number, etc."
+      placeholder: "e.g. Jetson Orin / Ubuntu 22.04 / bot_system v1.2.3 / commit abc123"
+    validations:
+      required: false
+
   - type: textarea
     id: screenshot
     attributes:
       label: "Screenshots"
-      description: If applicable, add screenshots to help explain your problem.
+      description: "If applicable, add screenshots."
       placeholder: |
         ![DESCRIPTION](LINK.png)
     validations:
       required: false
+
   - type: textarea
     id: logs
     attributes:
       label: "Logs"
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      description: "Paste relevant logs."
       render: bash
+    validations:
+      required: false
+
+  - type: textarea
+    id: fix_criteria
+    attributes:
+      label: "Fix criteria (acceptance criteria)"
+      description: "How do we know this bug is fixed?"
+      placeholder: |
+        - No longer reproduces using steps above
+        - Added regression test (if applicable)
     validations:
       required: false
