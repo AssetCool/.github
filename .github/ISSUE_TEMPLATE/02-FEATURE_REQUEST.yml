@@ -62,17 +62,16 @@ body:
       description: "Fibonacci-style sizing (based on Mike Cohn's modified Fibonacci sequence)."
       options:
         - "? (needs clarification or a spike)"
-        - "0"
         - "½"
         - "1"
         - "2"
         - "3"
         - "5"
         - "8"
-        - "13 (consider breaking down further)"
-        - "20 (too big -- likely an epic or can be broken down further)"
-        - "40 (too big -- likely an epic or can be broken down further)"
-        - "100 (too big -- likely an epic or can be broken down further)"
+        - "13"
+        - "20"
+        - "40"
+        - "100"
         - "∞ (unbounded/rescope)"
     validations:
       required: true
@@ -80,17 +79,16 @@ body:
   - type: markdown
     attributes:
       value: |
-        ***Story points are relative (not hours).*** Use them to express overall effort/complexity/uncertainty.
+        ***Story points are relative (not hours). Use them to express overall effort/complexity/uncertainty.***
 
         ***Quick guide***
-        - 0: no work / already done
+        - ?: not enough info to estimate (needs clarification/spike)
         - ½–1: tiny, well understood, low risk
         - 2–3: small, straightforward, some unknowns
         - 5: medium, multiple steps, needs testing
         - 8: large, design decisions / more moving parts
         - 13: very large, high uncertainty — consider splitting
         - 20/40/100: too big/uncertain — break down before committing
-        - ?: not enough info to estimate (needs clarification/spike)
         - ∞: unbounded/unestimable as written (re-scope)
 
         Further explanation: [Why the Fibonacci sequence works well for estimating](https://www.mountaingoatsoftware.com/blog/why-the-fibonacci-sequence-works-well-for-estimating)
