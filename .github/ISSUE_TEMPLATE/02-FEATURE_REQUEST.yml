@@ -15,7 +15,10 @@ body:
     attributes:
       label: "User story"
       description: "As a <user>, I want <capability>, so that <benefit>."
-      value: "As a <user>, I want <capability>, so that <benefit>.""
+      value: |
+        As a <user>,
+        I want <capability>,
+        So that <benefit>.
     validations:
       required: true
 
@@ -90,12 +93,11 @@ body:
 
         Further explanation: [Why the Fibonacci sequence works well for estimating](https://www.mountaingoatsoftware.com/blog/why-the-fibonacci-sequence-works-well-for-estimating)
 
-
   - type: textarea
     id: notes
     attributes:
       label: "Notes / design / links"
-      placeholder: |
+      value: |
         Context:
         Approach:
         Links:
