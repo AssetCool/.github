@@ -1,73 +1,80 @@
 name: "💡 Feature Request"
-description: Create a new ticket for a new feature request
-title: "💡 [REQUEST] - <title>"
-labels: [
-  "question"
-]
+description: "Create a new ticket for a new feature request"
+title: "💡 [REQUEST] - "
+labels:
+  - question
+
 body:
   - type: input
     id: start_date
     attributes:
       label: "Start Date"
-      description: Start of development
+      description: "Start of development"
       placeholder: "day/month/year"
     validations:
       required: false
+
   - type: input
     id: due_date
     attributes:
       label: "Due Date"
-      description:  Development deadline
+      description: "Development deadline"
       placeholder: "day/month/year"
     validations:
       required: false
+
   - type: textarea
     id: reference_issues
     attributes:
       label: "Reference Issues"
-      description: Common issues
-      placeholder: "#Issues IDs"
+      description: "Common issues"
+      placeholder: "#Issue IDs"
     validations:
       required: false
+
   - type: textarea
     id: summary
     attributes:
       label: "Summary"
-      description: Provide a brief explanation of the feature
-      placeholder: Describe in a few lines your feature request
+      description: "Provide a brief explanation of the feature"
+      placeholder: "Describe in a few lines your feature request"
     validations:
       required: true
+
   - type: textarea
     id: basic_example
     attributes:
       label: "Basic Example"
-      description: Indicate here some basic examples of your feature.
-      placeholder: A few specific words about your feature request.
+      description: "Indicate here some basic examples of your feature."
+      placeholder: "A few specific words about your feature request."
     validations:
       required: true
-    - type: textarea
+
+  - type: textarea
     id: acceptance_criteria
     attributes:
       label: "Acceptance Criteria"
-      description: What are the acceptance criteria for this feature ?
+      description: "What are the acceptance criteria for this feature?"
       placeholder: |-
-      - AC1:
-      - AC2:
+        - AC1:
+        - AC2:
     validations:
       required: true
+
   - type: textarea
     id: drawbacks
     attributes:
       label: "Drawbacks"
-      description: What are the drawbacks/impacts of your feature request ?
-      placeholder: Identify the drawbacks and impacts while being neutral on your feature request
+      description: "What are the drawbacks/impacts of your feature request?"
+      placeholder: "Identify the drawbacks and impacts while being neutral on your feature request"
     validations:
       required: true
+
   - type: textarea
     id: unresolved_question
     attributes:
       label: "Unresolved questions"
-      description: What questions still remain unresolved ?
-      placeholder: Identify any unresolved issues.
+      description: "What questions still remain unresolved?"
+      placeholder: "Identify any unresolved issues."
     validations:
       required: false
