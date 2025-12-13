@@ -55,14 +55,42 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: markdown
+    attributes:
+    value: |
+      **Story points are relative (not hours).** Use them to express overall effort/complexity/uncertainty.
+
+      **Quick guide**
+      - ½–1: tiny, well understood, low risk
+      - 2–3: small, straightforward, some unknowns
+      - 5: medium, multiple steps, needs testing
+      - 8: large, design decisions / more moving parts
+      - 13: very large, high uncertainty — consider splitting
+      - 20/40/100: too big/uncertain — break down before committing
+      - ?: not enough info to estimate (needs clarification/spike)
+      - ∞: unbounded/unestimable as written (re-scope)
+
+      Further explanation: [Why the Fibonacci sequence works well for estimating](https://www.mountaingoatsoftware.com/blog/why-the-fibonacci-sequence-works-well-for-estimating)
+
+  - type: dropdown
     id: story_points
     attributes:
       label: "Story points"
-      description: "Optional. If you point at Feature level, put points here (not on Tasks)."
-      placeholder: "e.g. 3"
+      description: "Fibonacci-style sizing (based on Mike Cohn's modified Fibonacci sequence)
+      options:
+        - "? (needs clarification or a spike)"
+        - "½"
+        - "1"
+        - "3"
+        - "5"
+        - "8"
+        - "13 (consider breaking down further)"
+        - "20 (too big -- likely an epic or can be broken down further)"
+        - "40 (too big -- likely an epic or can be broken down further)"
+        - "100 (too big -- likely an epic or can be broken down further)"
+        - "∞ (unbounded/rescope)"
     validations:
-      required: false
+      required: true
 
   - type: textarea
     id: notes
