@@ -10,33 +10,30 @@ body:
         **Features carry the user story + user-facing acceptance criteria.**
         Break the Feature into Tasks (as sub-issues).
 
-  - type: input
-    id: epic_link
-    attributes:
-      label: "Parent Epic"
-      description: "Optional but recommended. Paste #123 or full URL."
-      placeholder: "#123"
-    validations:
-      required: false
-
   - type: textarea
     id: user_story
     attributes:
       label: "User story"
       description: "As a <user>, I want <capability>, so that <benefit>."
-      placeholder: |
-        As a ...
-        I want ...
-        So that ...
+      value: "As a <user>, I want <capability>, so that <benefit>.""
     validations:
       required: true
+
+  - type: input
+    id: epic_link
+    attributes:
+      label: "Parent Epic"
+      description: "Optional but recommended. Paste issue number (e.g. #123) or full URL to epic."
+      placeholder: "#123"
+    validations:
+      required: false
 
   - type: textarea
     id: acceptance_criteria
     attributes:
       label: "Acceptance criteria"
       description: "User-facing, testable conditions."
-      placeholder: |
+      value: |
         - AC1:
         - AC2:
         - AC3:
