@@ -37,8 +37,18 @@ request to issue 1234.  And when we merge the pull request, Github will
 automatically close the issue.
 -->
 
-- Related Issue #
 - Closes #
+- Relates to #
+- Depends on #
+
+## Approach / Notes for reviewers
+<!-- Why this approach? Anything reviewers should focus on? -->
+
+## How to test
+<!-- Commands + steps -->
+- [ ] Unit:
+- [ ] Integration:
+- [ ] Manual:
 
 ## Tests, Screenshots, Recordings
 
@@ -58,7 +68,15 @@ with any relevant images._
 
 - [ ] 📜 README.md
 - [ ] 📚 GitHub Wiki
-- [ ] 🦆 Code
+- [ ] 🦆 In Code
 - [ ] 🙈 No Documentation Required
 
-## [optional] Are there any post-merge tasks we need to perform?
+## Risk of Rollout
+
+- [ ] 🟢 Low
+- [ ] 🟠 Medium
+- [ ] 🔴 High
+
+## Post-merge tasks (optional -- provide details if checked)
+
+- [ ] Details:
