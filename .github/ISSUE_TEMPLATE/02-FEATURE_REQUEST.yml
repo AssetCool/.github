@@ -15,7 +15,7 @@ body:
     attributes:
       label: "User story"
       description: "Try to write roughly in the form: As a <user>, I want <capability>, so that <benefit>."
-      value: "As a <user>, I want <capability>, So that <benefit>."
+      value: "As a <user>, I want <capability>, so that <benefit>."
     validations:
       required: true
 
