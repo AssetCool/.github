@@ -1,0 +1,77 @@
+name: "🧩 Task"
+description: "A single unit of implementation work (linked to a Feature)"
+title: "🧩 [TASK] - <short title>"
+labels: ["task"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for a concrete piece of work. If it's a user-visible change, consider raising a Feature instead.
+
+  - type: input
+    id: feature_link
+    attributes:
+      label: "Linked Feature"
+      description: "Paste the Feature issue reference (e.g. #123) or full URL."
+      placeholder: "#123"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_story
+    attributes:
+      label: "User story"
+      description: "Format: As a <user>, I want <capability>, so that <benefit>."
+      placeholder: |
+        As a ...
+        I want ...
+        So that ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: "Acceptance criteria"
+      description: "Clear, testable conditions for completion."
+      placeholder: |
+        - AC1:
+        - AC2:
+        - AC3:
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      description: "Relative urgency/importance."
+      options:
+        - "P0 - Critical (blocker)"
+        - "P1 - High"
+        - "P2 - Medium"
+        - "P3 - Low"
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: "Implementation notes / links"
+      description: "Optional context, approach, references, related PRs/issues."
+      placeholder: |
+        - Context:
+        - Approach:
+        - References:
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: definition_of_done
+    attributes:
+      label: "Definition of done"
+      options:
+        - label: "PR linked and merged"
+        - label: "Tests added/updated (if applicable)"
+        - label: "Docs updated (if applicable)"
