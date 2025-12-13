@@ -97,9 +97,5 @@ body:
     id: notes
     attributes:
       label: "Notes / design / links"
-      value: |
-        Context:
-        Approach:
-        Links:
     validations:
       required: false
