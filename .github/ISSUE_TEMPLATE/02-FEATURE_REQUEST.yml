@@ -40,43 +40,12 @@ body:
     validations:
       required: true
 
-  - type: dropdown
-    id: priority
-    attributes:
-      label: "Priority"
-      options:
-        - "P0 - Critical (blocker)"
-        - "P1 - High"
-        - "P2 - Medium"
-        - "P3 - Low"
-    validations:
-      required: true
-
-  - type: dropdown
-    id: story_points
-    attributes:
-      label: "Story points"
-      description: "Fibonacci-style sizing (based on Mike Cohn's modified Fibonacci sequence)."
-      options:
-        - "? (needs clarification or a spike)"
-        - "½"
-        - "1"
-        - "2"
-        - "3"
-        - "5"
-        - "8"
-        - "13"
-        - "20"
-        - "40"
-        - "100"
-        - "∞ (unbounded/rescope)"
-    validations:
-      required: true
-
   - type: markdown
     attributes:
       value: |
         ***Story points are relative (not hours). Use them to express overall effort/complexity/uncertainty.***
+
+        ***When this issue is moved to "Ready" within the Project, an Estimate field will be revealed. Please use the following as a guide for population:***
 
         ***Quick guide***
         - ?: not enough info to estimate (needs clarification/spike)
