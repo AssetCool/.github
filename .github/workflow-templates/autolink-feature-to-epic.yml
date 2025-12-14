@@ -1,0 +1,9 @@
+name: Link Feature → Epic
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  link:
+    uses: AssetCool/.github/.github/workflows/-autolink-feature-to-epic.yml@main
+    secrets: inherit
