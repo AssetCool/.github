@@ -96,3 +96,9 @@ body:
       label: "Notes / design / links"
     validations:
       required: false
+
+  - type: markdown
+    attributes:
+    value: |
+      ✅ **After creating this issue:** please add it to the appropriate **Project** using the right-hand sidebar → **Projects**.
+      If you’re not sure which Project to use, ask in #eng or email engineering@assetcool.com.
