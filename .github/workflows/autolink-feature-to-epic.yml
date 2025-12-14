@@ -1,0 +1,94 @@
+name: Auto-link Feature to Epic (sub-issue)
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  link:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Link Feature as sub-issue of Epic
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issue = context.payload.issue;
+            const body = issue.body || "";
+
+            // 1) Only run for Features (adjust to your conventions)
+            const labels = (issue.labels || []).map(l => (typeof l === "string" ? l : l.name)).filter(Boolean);
+            const isFeature =
+              labels.includes("feature") ||
+              (issue.title || "").startsWith("💡 [FEATURE]");
+            if (!isFeature) return;
+
+            // 2) Extract the Epic link from the issue-form rendered body:
+            //    "### Parent Epic" followed by a single line value
+            const m = body.match(/###\s*Parent Epic\s*\r?\n\s*([^\r\n]+)/i);
+            if (!m) return;
+
+            const ref = (m[1] || "").trim();
+            if (!ref || /^_?No response_?$/i.test(ref)) return;
+
+            // 3) Parse #123 or .../issues/123
+            const n = ref.match(/#(\d+)/) || ref.match(/\/issues\/(\d+)/);
+            if (!n) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: issue.number,
+                body: "⚠️ I couldn't parse **Parent Epic**. Use `#123` or a full issue URL."
+              });
+              return;
+            }
+
+            const epicNumber = parseInt(n[1], 10);
+            if (!Number.isFinite(epicNumber) || epicNumber <= 0) return;
+
+            // 4) Confirm the epic exists in this repo
+            try {
+              await github.rest.issues.get({ owner, repo, issue_number: epicNumber });
+            } catch (e) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: issue.number,
+                body: `⚠️ Epic #${epicNumber} not found in this repo (or no access).`
+              });
+              return;
+            }
+
+            // 5) If already parented correctly, do nothing (avoid comment spam)
+            let currentParentNumber = null;
+            try {
+              const parentResp = await github.request(
+                "GET /repos/{owner}/{repo}/issues/{issue_number}/parent",
+                { owner, repo, issue_number: issue.number }
+              );
+              currentParentNumber = parentResp?.data?.number ?? null;
+            } catch (e) {
+              // 404 means "no parent" (or feature not enabled); we handle below.
+            }
+
+            if (currentParentNumber === epicNumber) return;
+
+            // 6) Add this Feature as a sub-issue of the Epic (replace parent if needed)
+            // REST endpoint takes sub_issue_id = issue.id (NOT issue.number)
+            try {
+              await github.request(
+                "POST /repos/{owner}/{repo}/issues/{issue_number}/sub_issues",
+                {
+                  owner,
+                  repo,
+                  issue_number: epicNumber,
+                  sub_issue_id: issue.id,
+                  replace_parent: true
+                }
+              );
+            } catch (e) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: issue.number,
+                body: "⚠️ Failed to link Feature → Epic as a sub-issue. This may mean sub-issues aren’t enabled for this repo/org, or permissions are insufficient."
+              });
+              return;
+            }
