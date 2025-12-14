@@ -33,21 +33,23 @@ body:
     attributes:
       label: "Acceptance criteria"
       description: "User-facing, testable conditions."
-      value: |
+      placeholder: |
         - AC1:
         - AC2:
         - AC3:
     validations:
       required: true
 
-  - type: markdown
+  - type: textarea
+    id: notes
     attributes:
+      label: "Notes / design / links"
       value: |
-        ***Story points are relative (not hours). Use them to express overall effort/complexity/uncertainty.***
+      **Story points are relative (not hours). Use them to express overall effort/complexity/uncertainty.**
 
-        ***When this issue is moved to "Ready" within the Project, an Estimate field will be revealed. Please use the following as a guide for population:***
+        **Please use the following as a guide for populating the ***Effort*** field during Sprint Planning:**
 
-        ***Quick guide***
+        **Quick guide***
         - ?: not enough info to estimate (needs clarification/spike)
         - ½–1: tiny, well understood, low risk
         - 2–3: small, straightforward, some unknowns
@@ -58,11 +60,6 @@ body:
         - ∞: unbounded/unestimable as written (re-scope)
 
         Further explanation: [Why the Fibonacci sequence works well for estimating](https://www.mountaingoatsoftware.com/blog/why-the-fibonacci-sequence-works-well-for-estimating)
-
-  - type: textarea
-    id: notes
-    attributes:
-      label: "Notes / design / links"
     validations:
       required: false
 
@@ -71,4 +68,6 @@ body:
       value: |
         ✅ **After creating this issue:** please add it to the appropriate **Project** using the right-hand sidebar → **Projects**.
         N.B. If you have linked the Feature to an Epic that is already part of this project, the Feature should inherit this.
-        If you’re not sure which Project to use, ask in #eng or email engineering@assetcool.com.
+
+        At Sprint Planning, once the issue is moved to **Ready** Status, please ensure that a Priority is assigned and an **Estimate** is given using the guide above.
+        If you’re not sure which Project to use, ask in email engineering@assetcool.com.
