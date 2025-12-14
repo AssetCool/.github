@@ -5,5 +5,5 @@ on:
 
 jobs:
   link:
-    uses: AssetCool/.github/.github/workflows/_autolink-feature-to-epic.yml@main
+    uses: AssetCool/.github/.github/workflows/_autocomment-advice.yml@main
     secrets: inherit
