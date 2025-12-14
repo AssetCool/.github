@@ -11,7 +11,8 @@ jobs:
   guide:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v7
+      - name: Post guide comment
+        uses: actions/github-script@v7
         with:
           script: |
             const { owner, repo } = context.repo;
@@ -23,13 +24,11 @@ jobs:
               .filter(Boolean);
 
             const isFeature = labels.includes("feature") || title.startsWith("💡 [FEATURE]");
-            const isBug     = labels.includes("bug")     || title.startsWith("🐛 [BUG]");
+            const isBug = labels.includes("bug") || title.startsWith("🐛 [BUG]");
 
             if (!isFeature && !isBug) return;
 
-            const marker = isFeature
-              ? "<!-- GUIDE:FEATURE -->"
-              : "<!-- GUIDE:BUG -->";
+            const marker = isFeature ? "<!-- GUIDE:FEATURE -->" : "<!-- GUIDE:BUG -->";
 
             // Avoid duplicate comments: look for an existing guide comment
             const comments = await github.paginate(
@@ -37,48 +36,43 @@ jobs:
               { owner, repo, issue_number: issue.number, per_page: 100 }
             );
 
-            const alreadyPosted = comments.some(c => (c.body || "").includes(marker));
-            if (alreadyPosted) return;
+            if (comments.some(c => (c.body || "").includes(marker))) return;
 
-            const featureGuide = `
-${marker}
+            const featureGuide = `${marker}
 
-<details>
-<summary><strong>Story point estimation guide</strong></summary>
+            <details>
+            <summary><strong>Story point estimation guide</strong></summary>
 
-**Story points are relative (not hours).** Use them to express overall effort/complexity/uncertainty.
+            **Story points are relative (not hours).** Use them to express overall effort/complexity/uncertainty.
 
-**Use this as a guide for populating _Projects → Estimate_ during Sprint Planning:**
-- **?**: not enough info to estimate (needs clarification/spike)
-- **½–1**: tiny, well understood, low risk
-- **2–3**: small, straightforward, some unknowns
-- **5**: medium, multiple steps, needs testing
-- **8**: large, design decisions / more moving parts
-- **13**: very large, high uncertainty — consider splitting
-- **20/40/100**: too big/uncertain — break down before committing
-- **∞**: unbounded/unestimable as written (re-scope)
+            **Use this as a guide for populating _Projects → Estimate_ during Sprint Planning:**
+            - **?**: not enough info to estimate (needs clarification/spike)
+            - **½–1**: tiny, well understood, low risk
+            - **2–3**: small, straightforward, some unknowns
+            - **5**: medium, multiple steps, needs testing
+            - **8**: large, design decisions / more moving parts
+            - **13**: very large, high uncertainty — consider splitting
+            - **20/40/100**: too big/uncertain — break down before committing
+            - **∞**: unbounded/unestimable as written (re-scope)
 
-Further explanation: https://www.mountaingoatsoftware.com/blog/why-the-fibonacci-sequence-works-well-for-estimating
-</details>
-`.trim();
+            Further explanation: https://www.mountaingoatsoftware.com/blog/why-the-fibonacci-sequence-works-well-for-estimating
+            </details>`.replace(/^ {12}/gm, "").trim();
 
-            const bugGuide = `
-${marker}
+            const bugGuide = `${marker}
 
-<details>
-<summary><strong>Bug report checklist</strong></summary>
+            <details>
+            <summary><strong>Bug report checklist</strong></summary>
 
-To make this bug easy to reproduce and verify:
+            To make this bug easy to reproduce and verify:
 
-- **Expected vs actual**: what should happen vs what happened
-- **Repro steps**: minimal steps to reproduce
-- **Environment/version**: device/OS/app version/commit/build
-- **Evidence**: logs, screenshots, error messages
-- **Fix criteria**: how we’ll know it’s fixed (ideally a regression test)
+            - **Expected vs actual**: what should happen vs what happened
+            - **Repro steps**: minimal steps to reproduce
+            - **Environment/version**: device/OS/app version/commit/build
+            - **Evidence**: logs, screenshots, error messages
+            - **Fix criteria**: how we’ll know it’s fixed (ideally a regression test)
 
-Tip: if this blocks a current Feature/Epic, link it in the issue body or add it as a sub-issue.
-</details>
-`.trim();
+            Tip: if this blocks a current Feature/Epic, link it in the issue body or add it as a sub-issue.
+            </details>`.replace(/^ {12}/gm, "").trim();
 
             const commentBody = isFeature ? featureGuide : bugGuide;
 
