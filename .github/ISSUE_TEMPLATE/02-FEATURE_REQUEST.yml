@@ -101,4 +101,5 @@ body:
     attributes:
       value: |
         ✅ **After creating this issue:** please add it to the appropriate **Project** using the right-hand sidebar → **Projects**.
+        N.B. If you have linked the Feature to an Epic that is already part of this project, the Feature should inherit this.
         If you’re not sure which Project to use, ask in #eng or email engineering@assetcool.com.
