@@ -13,18 +13,6 @@ body:
     validations:
       required: false
 
-  - type: dropdown
-    id: priority
-    attributes:
-      label: "Priority"
-      options:
-        - "P0 - Critical (blocker)"
-        - "P1 - High"
-        - "P2 - Medium"
-        - "P3 - Low"
-    validations:
-      required: true
-
   - type: textarea
     id: description
     attributes:
@@ -97,5 +85,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        ✅ **After creating this issue:** please add it to the appropriate **Project** using the right-hand sidebar → **Projects**.
-        If you’re not sure which Project to use, ask in #eng or email engineering@assetcool.com.
+        ✅ **After creating this issue:** please add it to the appropriate _Project_ using the right-hand sidebar → _Projects_.
+        N.B. If you have linked the Feature to an Epic that is already part of this project, the Bug should inherit this.
+
+        At Sprint Planning, once the issue is moved to **Ready** Status, please ensure that a _Priority_ is assigned and an _Estimate_ is given.
+        If you’re not sure which Project to use, ask by emailing engineering@assetcool.com.

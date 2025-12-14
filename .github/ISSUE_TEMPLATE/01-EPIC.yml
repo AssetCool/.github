@@ -33,7 +33,7 @@ body:
         Out of scope:
         - ...
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: exit_criteria
@@ -50,12 +50,12 @@ body:
   - type: dropdown
     id: priority
     attributes:
-      label: "Priority"
+      label: "Epic Priority"
       options:
-        - "P0 - Critical (blocker)"
-        - "P1 - High"
-        - "P2 - Medium"
-        - "P3 - Low"
+        - "Urgent"
+        - "High"
+        - "Normal"
+        - "Low"
     validations:
       required: true
 
@@ -84,4 +84,4 @@ body:
     attributes:
       value: |
         ✅ **After creating this issue:** please add it to the appropriate **Project** using the right-hand sidebar → **Projects**.
-        If you’re not sure which Project to use, ask in #eng or email engineering@assetcool.com.
+        If you’re not sure which Project to use, ask by emailing engineering@assetcool.com.

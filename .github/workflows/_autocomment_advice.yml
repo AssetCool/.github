@@ -30,7 +30,7 @@ jobs:
 
             const marker = isFeature ? "<!-- GUIDE:FEATURE -->" : "<!-- GUIDE:BUG -->";
 
-            // Avoid duplicate comments: look for an existing guide comment
+            // Avoid duplicate comments: look for an existing guide comment with our marker
             const comments = await github.paginate(
               github.rest.issues.listComments,
               { owner, repo, issue_number: issue.number, per_page: 100 }
@@ -72,6 +72,24 @@ jobs:
             - **Fix criteria**: how we’ll know it’s fixed (ideally a regression test)
 
             Tip: if this blocks a current Feature/Epic, link it in the issue body or add it as a sub-issue.
+            </details>
+
+            <details>
+            <summary><strong>Story point estimation guide</strong></summary>
+
+            **Story points are relative (not hours).** Use them to express overall effort/complexity/uncertainty.
+
+            **Use this as a guide for populating _Projects → Estimate_ during Sprint Planning:**
+            - **?**: not enough info to estimate (needs clarification/spike)
+            - **½–1**: tiny, well understood, low risk
+            - **2–3**: small, straightforward, some unknowns
+            - **5**: medium, multiple steps, needs testing
+            - **8**: large, design decisions / more moving parts
+            - **13**: very large, high uncertainty — consider splitting
+            - **20/40/100**: too big/uncertain — break down before committing
+            - **∞**: unbounded/unestimable as written (re-scope)
+
+            Further explanation: https://www.mountaingoatsoftware.com/blog/why-the-fibonacci-sequence-works-well-for-estimating
             </details>`.replace(/^ {12}/gm, "").trim();
 
             const commentBody = isFeature ? featureGuide : bugGuide;

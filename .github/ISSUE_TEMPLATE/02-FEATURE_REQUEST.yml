@@ -15,7 +15,7 @@ body:
     attributes:
       label: "User story"
       description: "Try to write roughly in the form: As a &lt;user&gt;, I want &lt;capability&gt;, so that &lt;benefit&gt;."
-      value: "As a &lt;user&gt;, I want &lt;capability&gt;, so that &lt;benefit&gt;."
+      value: "As a <user>, I want <capability>, so that <benefit>."
     validations:
       required: true
 
@@ -36,7 +36,7 @@ body:
       placeholder: |
         - AC1:
         - AC2:
-        - AC3:
+        - etc
     validations:
       required: true
 
@@ -44,22 +44,8 @@ body:
     id: notes
     attributes:
       label: "Notes / design / links"
-      value: |
-        **Story points are relative (not hours). Use them to express overall effort/complexity/uncertainty.**
-
-        **Please use the following as a guide for populating the _Estimate_ field during Sprint Planning:**
-
-        **Quick guide**
-        - ?: not enough info to estimate (needs clarification/spike)
-        - ½–1: tiny, well understood, low risk
-        - 2–3: small, straightforward, some unknowns
-        - 5: medium, multiple steps, needs testing
-        - 8: large, design decisions / more moving parts
-        - 13: very large, high uncertainty — consider splitting
-        - 20/40/100: too big/uncertain — break down before committing
-        - ∞: unbounded/unestimable as written (re-scope)
-
-        Further explanation: [Why the Fibonacci sequence works well for estimating](https://www.mountaingoatsoftware.com/blog/why-the-fibonacci-sequence-works-well-for-estimating)
+      placeholder: |
+        Place your own notes here.
     validations:
       required: false
 
