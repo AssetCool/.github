@@ -1,0 +1,14 @@
+name: Add new issues to Default Project
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1
+        with:
+          project-url: https://github.com/orgs/<orgName>/projects/<projectNumber>
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
