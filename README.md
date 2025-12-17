@@ -16,11 +16,12 @@ Use the template that best matches the size and intent of the work:
 - [🧩 Task](#-task)
   - [Task template field examples](#task-template-field-examples)
   - [Quick sizing guidance for Tasks](#quick-sizing-guidance-for-tasks)
-- [🐛 Bug Report](#-bug-report)
+- [🐛 Bug Report](#-bug)
 - [Support](#support)
 
 ---
 
+<a id="epic"></a>
 ### 🗺️ Epic
 
 Use an Epic for a **single, coherent outcome** that will take **multiple sprints** and will be delivered through multiple **Features** (which then break down into Tasks). An Epic should describe the *why*, the *scope boundaries*, and what “done” looks like — it’s not a general bucket for unrelated work.
@@ -120,6 +121,7 @@ Example:
 
 ---
 
+<a id="feature"></a>
 ### 💡 Feature
 
 Use this when you want to describe a **chunk of added value** from a stakeholder’s point of view — something someone can do afterwards that they couldn’t do before (or can do more easily/safely). A Feature should be **small enough to complete within one sprint**.
@@ -262,6 +264,7 @@ At Sprint Planning, once the issue is moved to **Ready**, please ensure that a *
 
 ---
 
+<a id="task"></a>
 ### 🧩 Task
 
 Use a Task for a **small, concrete unit of implementation work** that supports a Feature. A Task should be something an engineer can pick up and complete in a short time (often hours to 1–2 days). Tasks are **engineering deliverables**, not stakeholder-facing outcomes.
@@ -330,6 +333,7 @@ If a Task starts growing:
 
 ---
 
+<a id="bug"></a>
 ### 🐛 Bug Report
 
 Use this when something is broken, unreliable, or behaving incorrectly in an existing system (i.e. not “new work”, but a defect).
@@ -368,6 +372,7 @@ Examples:
 
 ---
 
+<a id="support"></a>
 ## Support
 
 If you need help with templates or you’re unsure which issue type to use, contact the engineering team:
