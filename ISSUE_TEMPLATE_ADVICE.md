@@ -18,7 +18,7 @@ Use the template that best matches the size and intent of the work:
 
 Use an Epic for a **single, coherent outcome** that will take **multiple sprints** and will be delivered through multiple **Features** (which then break down into Tasks). An Epic should describe the *why*, the *scope boundaries*, and what “done” looks like — it’s not a general bucket for unrelated work.
 
-#### Epic field examples
+#### Epic issue type: field examples
 
 ##### Outcome / goal
 ***What are we trying to achieve, for whom, and why now?***
@@ -179,7 +179,7 @@ Below are the same examples explaining what “good” looks like for the fields
 - Context: Current investigations require manual log pulling and bespoke scripts.
 - Approach:
   - Define export schema (columns + units).
-  - Add filter-by-time query (DuckDB/SQLite/TSDB depending on stack).
+  - Add filter-by-time SQL query 
   - Add a “share bundle” option later (out of scope for this Feature).
 - Links:
   - Incident postmortem: …
