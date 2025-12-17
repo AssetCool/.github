@@ -129,7 +129,7 @@ Below are the same examples explaining what “good” looks like for the fields
 
 ---
 
-##### Example 1: Emergency stop via RC transmitter
+#### Example 1: Emergency stop via RC transmitter
 
 **Title**
 - `💡 [FEATURE] - RC emergency stop to put bot in safe state`
@@ -160,7 +160,7 @@ Below are the same examples explaining what “good” looks like for the fields
 
 ---
 
-##### Example 2: Export telemetry for a time range
+#### Example 2: Export telemetry for a time range
 
 **Title**
 - `💡 [FEATURE] - Export telemetry for a selected time range`
@@ -191,7 +191,7 @@ Below are the same examples explaining what “good” looks like for the fields
 
 ---
 
-##### Example 3: Camera health status visibility
+#### Example 3: Camera health status visibility
 
 **Title**
 - `💡 [FEATURE] - Display camera health status (online/FPS/last frame time)`
@@ -222,7 +222,7 @@ Below are the same examples explaining what “good” looks like for the fields
 
 ---
 
-##### Example 4: Run full test suite in CI on every PR
+#### Example 4: Run full test suite in CI on every PR
 
 **Title**
 - `💡 [FEATURE] - Run full test suite in CI on every PR`
