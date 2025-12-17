@@ -1,5 +1,5 @@
 name: "💡 Feature"
-description: A user-visible slice of value (often 1 sprint)
+description: A user-visible chunk of added value (1 sprint or less in time)
 title: "💡 [FEATURE] - <title>"
 labels: ["feature"]
 
