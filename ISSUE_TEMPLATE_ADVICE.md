@@ -495,7 +495,7 @@ Examples:
 - 🔴 **High**: touches safety/control paths, data loss risk, migration required, or hard-to-revert changes
 
 If 🟠/🔴, add a line in “Approach / Notes” describing mitigation:
-- feature flag
+- feature flag (toggle in the code or config to turn the feature on/off)
 - staged rollout
 - rollback plan
 - additional monitoring
