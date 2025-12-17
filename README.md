@@ -1,11 +1,23 @@
 # .github
 
-This repository contains **organisation-level defaults** for GitHub issue templates and related settings.
+This repository contains **organisation-level defaults** for GitHub issue templates and related settings.  
 These defaults apply across the organisation, but can be **overridden in an individual repository** by adding repo-specific templates under `.github/ISSUE_TEMPLATE/`.
 
 ## Which issue type should I use?
 
 Use the template that best matches the size and intent of the work:
+
+- [Which issue type should I use?](#which-issue-type-should-i-use)
+- [🗺️ Epic](#️-epic)
+  - [Epic field examples](#epic-field-examples)
+  - [Epic examples written as outcomes](#epic-examples-written-as-outcomes)
+- [💡 Feature](#-feature)
+  - [Feature examples and field usage](#feature-examples-and-field-usage)
+- [🧩 Task](#-task)
+  - [Task template field examples](#task-template-field-examples)
+  - [Quick sizing guidance for Tasks](#quick-sizing-guidance-for-tasks)
+- [🐛 Bug Report](#-bug-report)
+- [Support](#support)
 
 ---
 
@@ -13,9 +25,9 @@ Use the template that best matches the size and intent of the work:
 
 Use an Epic for a **single, coherent outcome** that will take **multiple sprints** and will be delivered through multiple **Features** (which then break down into Tasks). An Epic should describe the *why*, the *scope boundaries*, and what “done” looks like — it’s not a general bucket for unrelated work.
 
-When you create an Epic, here’s what “good” looks like for each field:
+#### Epic field examples
 
-#### Outcome / goal
+##### Outcome / goal
 ***What are we trying to achieve, for whom, and why now?***
 
 Example:
@@ -24,7 +36,7 @@ Example:
 - **Why now:** Reduces site visits during winter deployments; current process is slow and error-prone.
 - **How we’ll measure success (optional):** 80% fewer “onsite required” interventions for routine operations; mean time to recover from operator error reduced by 50%.
 
-#### Scope
+##### Scope
 ***High-level “in vs out” boundaries so the Epic stays manageable.***
 
 Example:
@@ -37,7 +49,7 @@ Example:
   - Advanced analytics dashboards
   - Offline-first operation / store-and-forward control
 
-#### Exit criteria (definition of done)
+##### Exit criteria (definition of done)
 ***Clear conditions for closing the Epic.***
 
 Example:
@@ -46,7 +58,7 @@ Example:
 - Health checks and alerts added for the new control path
 - Demo completed with a real robot + sign-off from ops/support
 
-#### Epic Priority
+##### Epic Priority
 ***How urgently we need the outcome.***
 
 Example:
@@ -55,7 +67,7 @@ Example:
 - **Normal**: valuable, but not time-critical
 - **Low**: nice-to-have / opportunistic
 
-#### Target window
+##### Target window
 ***A rough delivery window (prefer ranges).***
 
 Example:
@@ -63,7 +75,7 @@ Example:
 - `Q1`
 - `Before March field trials`
 
-#### Dependencies / risks
+##### Dependencies / risks
 ***Anything that could block delivery or introduce uncertainty.***
 
 Example:
@@ -81,9 +93,7 @@ Example:
 
 ---
 
-### Examples (written as outcomes)
-
----
+#### Epic examples written as outcomes
 
 **Remote operations MVP**
 - Outcome: “As a field operator, I can perform the core remote actions safely and verify they happened.”
@@ -92,8 +102,6 @@ Example:
   - Operator can view current state + last command result
   - Basic faults visible + clear error messages
 
----
-
 **Telemetry pipeline v2**
 - Outcome: “As support/on-call, we can trust telemetry is captured, searchable, and exportable during incidents.”
 - Likely Features:
@@ -101,16 +109,12 @@ Example:
   - Buffering/retry when offline
   - Schema/versioning so fields don’t silently break
 
----
-
 **Reliability & watchdog improvements**
 - Outcome: “The system detects failures quickly and recovers automatically with clear diagnostics.”
 - Likely Features:
   - Service health endpoint + status page
   - Watchdog integration + restart policy
   - Alerting when telemetry stops / critical services restart
-
----
 
 ✅ After creating the Epic, add it to the appropriate **Project** (right-hand sidebar → **Projects**) and create the Features as **sub-issues** of the Epic.
 
@@ -122,7 +126,7 @@ Use this when you want to describe a **chunk of added value** from a stakeholder
 
 A Feature should be written as a **user story** (who / what / why) with **user-facing acceptance criteria**. It is then broken down into **Tasks** (implementation steps). The stakeholder might be a customer/operator, but it can also be an internal stakeholder (e.g., a developer, support engineer, or operations).
 
-#### Example Features and how to fill in the template fields
+#### Feature examples and field usage
 
 Below are the same examples explaining what “good” looks like for the fields specified.
 
@@ -274,9 +278,9 @@ Best practice: create Tasks as **sub-issues of a Feature** (use **Create sub-iss
 
 ---
 
-## How to fill out the Task template fields (with examples)
+#### Task template field examples
 
-### Linked Feature (required)
+##### Linked Feature (required)
 Paste the Feature this Task supports (issue number or full URL).
 
 Examples:
@@ -285,7 +289,7 @@ Examples:
 
 Good rule: if you can’t link it to a Feature, it might be a **Feature** (new value) or a **Bug** (something broken), not a Task.
 
-### Task goal (required)
+##### Task goal (required)
 One or two sentences: **what will be delivered**. Keep it specific and action-oriented.
 
 Examples:
@@ -293,14 +297,14 @@ Examples:
 - “Implement `GET /health/cameras` endpoint returning online/offline + last-frame timestamp.”
 - “Refactor `TelemetryPublisher` to separate serialization from transport (no behaviour change).”
 
-### Verification / how to test (optional)
+##### Verification / how to test (optional)
 This is a “how do I know this is done?” section. Keep it practical and reproducible.
 
 Examples:
 - “Start the stack locally, disconnect the camera, and confirm `/health/cameras` reports `offline` within 10s.”
 - “Run integration test `telemetry_export` and verify CSV contains timestamps + robot_id and the expected telemetry.”
 
-### Implementation notes / links (optional)
+##### Implementation notes / links (optional)
 Useful context for the implementer (approach, constraints, pointers). Keep it short.
 
 Examples:
@@ -308,7 +312,7 @@ Examples:
 - “Dependency: requires Feature #214 schema to be merged first.”
 - “Related PRs/issues: #301 (CAN heartbeat), PR #455 (healthcheck framework).”
 
-### Definition of done
+##### Definition of done
 Use this checklist to avoid “almost finished” tasks.
 
 Suggested interpretation:
@@ -318,7 +322,7 @@ Suggested interpretation:
 
 ---
 
-#### Quick sizing guidance
+#### Quick sizing guidance for Tasks
 If a Task starts growing:
 - If it needs multiple independent commits or several days of work → split into **smaller Tasks**.
 - If you’re writing a new stakeholder-visible capability → it’s probably a **Feature**.
@@ -327,64 +331,39 @@ If a Task starts growing:
 ---
 
 ### 🐛 Bug Report
+
 Use this when something is broken, unreliable, or behaving incorrectly in an existing system (i.e. not “new work”, but a defect).
 
 When you raise a bug, please fill in the template fields so someone else can reproduce and verify the fix:
 
-Description: what’s wrong, in one or two sentences.
-
-Reproduction steps: minimal steps to reliably trigger the problem.
-
-Expected vs actual: what should happen vs what does happen.
-
-Environment / version: device/OS/service version/commit/build (anything that might affect reproducibility).
-
-Screenshots / Logs: supporting evidence (error text, stack traces, photos, etc.).
-
-Fix criteria: how we’ll know it’s fixed (e.g., no longer repros; regression test added).
+- **Description:** what’s wrong, in one or two sentences.
+- **Reproduction steps:** minimal steps to reliably trigger the problem.
+- **Expected vs actual:** what should happen vs what does happen.
+- **Environment / version:** device/OS/service version/commit/build (anything that might affect reproducibility).
+- **Screenshots / Logs:** supporting evidence (error text, stack traces, photos, etc.).
+- **Fix criteria:** how we’ll know it’s fixed (e.g., no longer repros; regression test added).
 
 Examples:
 
----
-
 **“Pump start command returns ‘OK’, but the pump never starts.”**
-
 - Reproduction: send StartPump via UI → observe no movement
-
 - Expected: pump starts within 2s and state becomes Running
-
 - Actual: state flips to Running but hardware remains off
-
 - Env/version: Jetson Orin NX / Ubuntu 22.04 / bot_system vX.Y (commit …)
-
 - Logs: include CAN frames / controller logs
 
----
-
 **“Telemetry drops out after ~10 minutes of running.”**
-
 - Reproduction: run system for 10–15 mins → telemetry stream stops
-
 - Expected: continuous telemetry at configured rate
-
 - Actual: MQTT topic stops publishing; UI shows stale values
-
-- Env/version: Jetson Orin NX / Ubuntu 22.04 / bot_system vX.Y (commit …) / network type (Wi-Fi) / bot_system vX.Y (commit …)
-
+- Env/version: Jetson Orin NX / Ubuntu 22.04 / bot_system vX.Y (commit …) / network type (Wi-Fi/LTE)
 - Logs: MQTT client logs
 
----
-
 **“Clicking ‘Save settings’ crashes the app.”**
-
 - Reproduction: open Settings → change parameter → click Save
-
 - Expected: settings persist and success message shown
-
 - Actual: app crashes / throws exception
-
 - Evidence: screenshot/video + stack trace
-
 - Fix criteria: add regression test; no crash; settings persist across restart
 
 ---
