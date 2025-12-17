@@ -14,7 +14,7 @@ Use an Epic for a **single, coherent outcome** that will take **multiple sprints
 When you create an Epic, here’s what “good” looks like for each field:
 
 #### Outcome / goal
-**What are we trying to achieve, for whom, and why now?**
+***What are we trying to achieve, for whom, and why now?***
 
 Example:
 - **Outcome:** Operators can start/stop key subsystems remotely and confirm execution without being onsite.
@@ -23,7 +23,7 @@ Example:
 - **How we’ll measure success (optional):** 80% fewer “onsite required” interventions for routine operations; mean time to recover from operator error reduced by 50%.
 
 #### Scope
-**High-level “in vs out” boundaries so the Epic stays manageable.**
+***High-level “in vs out” boundaries so the Epic stays manageable.***
 
 Example:
 - **In scope:**
@@ -36,7 +36,7 @@ Example:
   - Offline-first operation / store-and-forward control
 
 #### Exit criteria (definition of done)
-**Clear conditions for closing the Epic.**
+***Clear conditions for closing the Epic.***
 
 Example:
 - All planned **Feature sub-issues** are completed and accepted
@@ -45,7 +45,7 @@ Example:
 - Demo completed with a real robot + sign-off from ops/support
 
 #### Epic Priority
-**How urgently we need the outcome.**
+***How urgently we need the outcome.***
 
 Example:
 - **Urgent**: blocks a customer delivery / safety issue / repeated incidents
@@ -54,7 +54,7 @@ Example:
 - **Low**: nice-to-have / opportunistic
 
 #### Target window
-**A rough delivery window (prefer ranges).**
+***A rough delivery window (prefer ranges).***
 
 Example:
 - `Sprint 14–16`
@@ -62,7 +62,7 @@ Example:
 - `Before March field trials`
 
 #### Dependencies / risks
-**Anything that could block delivery or introduce uncertainty.**
+***Anything that could block delivery or introduce uncertainty.***
 
 Example:
 - **Dependencies:**
@@ -81,7 +81,7 @@ Example:
 
 ### Examples (written as outcomes)
 
-**Remote operations MVP**
+**Remote operations MVP***
 - Outcome: “As a field operator, I can perform the core remote actions safely and verify they happened.”
 - Likely Features:
   - Operator can start/stop pump remotely (happy path)
