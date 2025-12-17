@@ -7,8 +7,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Tasks are engineering deliverables.**
-        Best practice: create this Task *from the Feature* using **Create sub-issue** so the hierarchy is correct. :contentReference[oaicite:1]{index=1}
+        **Tasks are engineering deliverables** (implementation work that supports a Feature).
+        Best practice: create this Task *from the Feature* using **Create sub-issue** so the hierarchy is correct.
 
   - type: input
     id: feature_link
@@ -23,7 +23,7 @@ body:
     id: task_goal
     attributes:
       label: "Task goal"
-      description: One or two sentences describing what will be delivered.
+      description: "One or two sentences describing what will be delivered."
       placeholder: |
         Implement/Update/Refactor ...
         Notes on expected behaviour:
@@ -31,32 +31,21 @@ body:
       required: true
 
   - type: textarea
-    id: acceptance_criteria
+    id: verification
     attributes:
-      label: "Acceptance criteria"
-      description: "Engineering/testable conditions (can be different from Feature AC)."
+      label: "Verification / how to test (optional)"
+      description: "How should someone verify this task is done?"
       placeholder: |
-        - AC1:
-        - AC2:
+        - Steps to verify:
+        - Tests to run:
+        - Expected result:
     validations:
-      required: true
-
-  - type: dropdown
-    id: priority
-    attributes:
-      label: "Priority"
-      options:
-        - "P0 - Critical (blocker)"
-        - "P1 - High"
-        - "P2 - Medium"
-        - "P3 - Low"
-    validations:
-      required: true
+      required: false
 
   - type: textarea
     id: implementation_notes
     attributes:
-      label: "Implementation notes / links"
+      label: "Implementation notes / links (optional)"
       placeholder: |
         - Approach:
         - Dependencies:
@@ -69,6 +58,6 @@ body:
     attributes:
       label: "Definition of done"
       options:
-        - label: "PR linked and merged"
+        - label: "Work merged/commits made if part of a larger PR"
         - label: "Tests added/updated (if applicable)"
         - label: "Docs updated (if applicable)"

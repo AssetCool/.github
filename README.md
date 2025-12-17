@@ -7,6 +7,8 @@ These defaults apply across the organisation, but can be **overridden in an indi
 
 Use the template that best matches the size and intent of the work:
 
+---
+
 ### 🗺️ Epic
 
 Use an Epic for a **single, coherent outcome** that will take **multiple sprints** and will be delivered through multiple **Features** (which then break down into Tasks). An Epic should describe the *why*, the *scope boundaries*, and what “done” looks like — it’s not a general bucket for unrelated work.
@@ -81,6 +83,8 @@ Example:
 
 ### Examples (written as outcomes)
 
+---
+
 **Remote operations MVP***
 - Outcome: “As a field operator, I can perform the core remote actions safely and verify they happened.”
 - Likely Features:
@@ -109,6 +113,8 @@ Example:
 ---
 
 ✅ After creating the Epic, add it to the appropriate **Project** (right-hand sidebar → **Projects**) and create the Features as **sub-issues** of the Epic.
+
+---
 
 ### 💡 Feature
 
@@ -250,16 +256,75 @@ N.B. If you have linked the Feature to a Parent Epic that is already part of thi
 
 At Sprint Planning, once the issue is moved to **Ready**, please ensure that a **Priority** is assigned and an **Estimate** is given (using your team guide). If you’re not sure which Project to use, email engineering@assetcool.com.
 
+---
 
 ### 🧩 Task
-Use this for a **small, concrete unit of implementation work**, usually completed within a sprint and often as part of a Feature.
 
-Typical examples:
+Use a Task for a **small, concrete unit of implementation work** that supports a Feature. A Task should be something an engineer can pick up and complete in a short time (often hours to 1–2 days). Tasks are **engineering deliverables**, not stakeholder-facing outcomes.
+
+Best practice: create Tasks as **sub-issues of a Feature** (use **Create sub-issue** from the Feature) so the hierarchy stays correct.
+
+#### Typical Task examples
 - Add a unit test for a module
 - Implement a single API method
-- Refactor a component, update a dependency, add logging
+- Add logging/metrics to one component
+- Refactor a function/class without changing behaviour
+- Update a dependency and fix any fallout
+- Write a small migration script/tool
 
-Best practice: create Tasks as **sub-issues of a Feature** where possible.
+---
+
+## How to fill out the Task template fields (with examples)
+
+### Linked Feature (required)
+Paste the Feature this Task supports (issue number or full URL).
+
+Examples:
+- `#214`  
+- `https://github.com/AssetCool/bot_system/issues/214`
+
+Good rule: if you can’t link it to a Feature, it might be a **Feature** (new value) or a **Bug** (something broken), not a Task.
+
+### Task goal (required)
+One or two sentences: **what will be delivered**. Keep it specific and action-oriented.
+
+Examples:
+- “Add a unit test covering CAN message parsing for pump start/stop commands.”
+- “Implement `GET /health/cameras` endpoint returning online/offline + last-frame timestamp.”
+- “Refactor `TelemetryPublisher` to separate serialization from transport (no behaviour change).”
+
+### Verification / how to test (optional)
+This is a “how do I know this is done?” section. Keep it practical and reproducible.
+
+Examples:
+- “Start the stack locally, disconnect the camera, and confirm `/health/cameras` reports `offline` within 10s.”
+- “Run integration test `telemetry_export` and verify CSV contains timestamps + robot_id and the expected telemetry.”
+
+### Implementation notes / links (optional)
+Useful context for the implementer (approach, constraints, pointers). Keep it short.
+
+Examples:
+- “Approach: add parser tests using recorded CAN frames from `/var/logs/ac/can_samples/`.”
+- “Dependency: requires Feature #214 schema to be merged first.”
+- “Related PRs/issues: #301 (CAN heartbeat), PR #455 (healthcheck framework).”
+
+### Definition of done
+Use this checklist to avoid “almost finished” tasks.
+
+Suggested interpretation:
+- **Work merged/commits made if part of a larger PR:** there is a PR merged, or the task is part of a larger PR and commits have been made and pushed.
+- **Tests added/updated (if applicable):** if the change affects behaviour, add/adjust tests.
+- **Docs updated (if applicable):** README/config docs updated if a user/operator/developer workflow changed.
+
+---
+
+#### Quick sizing guidance
+If a Task starts growing:
+- If it needs multiple independent commits or several days of work → split into **smaller Tasks**.
+- If you’re writing a new stakeholder-visible capability → it’s probably a **Feature**.
+- If you’re fixing something broken → use **Bug Report** instead.
+
+---
 
 ### 🐛 Bug Report
 Use this when something is broken, unreliable, or behaving incorrectly in an existing system (i.e. not “new work”, but a defect).
