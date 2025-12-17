@@ -47,7 +47,7 @@ Example:
 
 Example:
 - All planned **Feature sub-issues** are completed and accepted
-- Critical docs updated (operator notes + runbook)
+- Critical docs updated (operator notes + user manual)
 - Health checks and alerts added for the new control path
 - Demo completed with a real robot + sign-off from ops/support
 
@@ -386,7 +386,7 @@ Examples:
 - 🔥 **Performance Improvement**: measurably faster/leaner  
   > “Reduce image pipeline allocations; improves FPS by ~15%”
 - 📝 **Documentation Update**: docs-only change  
-  > “Update runbook for watchdog restart behaviour”
+  > “Update user manual for watchdog restart behaviour”
 - 🔁 **CI**: workflows/build changes  
   > “Enable caching for colcon build in GitHub Actions”
 - 📦 **Chore**: housekeeping  
@@ -416,7 +416,7 @@ Examples:
 - `Depends on #455` (blocked until another PR/issue merges)
 - Links to design doc / spec / ADR:
   - “Design notes: …”
-  - “Runbook update: …”
+  - “User manual update: …”
 
 Tip: If this PR implements a **Task**, also link that Task issue (and it should already be a sub-issue of the Feature).
 
