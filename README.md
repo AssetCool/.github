@@ -9,15 +9,10 @@ Use the template that best matches the size and intent of the work:
 
 - [Which issue type should I use?](#which-issue-type-should-i-use)
 - [🗺️ Epic](#️-epic)
-  - [Epic field examples](#epic-field-examples)
-  - [Epic examples written as outcomes](#epic-examples-written-as-outcomes)
 - [💡 Feature](#-feature)
-  - [Feature examples and field usage](#feature-examples-and-field-usage)
 - [🧩 Task](#-task)
-  - [Task template field examples](#task-template-field-examples)
-  - [Quick sizing guidance for Tasks](#quick-sizing-guidance-for-tasks)
 - [🐛 Bug Report](#-bug)
-- [Support](#support)
+- [🛟 Support](#support)
 
 ---
 
@@ -373,7 +368,7 @@ Examples:
 ---
 
 <a id="support"></a>
-## Support
+## 🛟 Support
 
 If you need help with templates or you’re unsure which issue type to use, contact the engineering team:
 
