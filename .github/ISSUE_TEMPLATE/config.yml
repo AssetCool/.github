@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: "📧 Support"
-    url: "https://github.com/AssetCool/.github/blob/main/README.md"
+  - name: "🛟 Support"
+    url: "https://github.com/AssetCool/.github/blob/main/ISSUE_TEMPLATE_ADVICE.md"
     about: "Support/guidance over which issue type to use can be found here."

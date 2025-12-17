@@ -1,4 +1,4 @@
-# Issue Advice
+# Issue/Template Advice
 
 ## Which issue type should I use?
 
@@ -8,6 +8,7 @@ Use the template that best matches the size and intent of the work:
 - [💡 Feature](#feature)
 - [🧩 Task](#task)
 - [🐛 Bug Report](#bug)
+- [🔎 Pull Request (PR)](#pull_request)
 - [🛟 Support](#support)
 
 ---
@@ -360,6 +361,161 @@ Examples:
 - Actual: app crashes / throws exception
 - Evidence: screenshot/video + stack trace
 - Fix criteria: add regression test; no crash; settings persist across restart
+
+---
+
+<a id="pull_request"></a>
+### 🔎 Pull Request (PR)
+
+Use a PR to propose a change to the codebase that should be reviewed and merged. PRs are where we capture **what changed**, **why**, **how to verify it**, and **any rollout risk**.
+
+This repository includes a PR template to make reviews consistent and fast. Below is guidance on how to fill it out with concrete examples.
+
+---
+
+#### What type of PR is this?
+Tick all that apply. This helps reviewers quickly understand intent.
+
+Examples:
+- 🍕 **Feature**: adds new capability  
+  > “Add `/health/cameras` endpoint”
+- 🐝 **Bug Fix**: fixes incorrect behaviour  
+  > “Fix CAN timeout parsing when frame length is 0”
+- 👨‍💻 **Refactor**: code restructure, no behaviour change  
+  > “Split TelemetryPublisher into serializer + transport”
+- 🔥 **Performance Improvement**: measurably faster/leaner  
+  > “Reduce image pipeline allocations; improves FPS by ~15%”
+- 📝 **Documentation Update**: docs-only change  
+  > “Update runbook for watchdog restart behaviour”
+- 🔁 **CI**: workflows/build changes  
+  > “Enable caching for colcon build in GitHub Actions”
+- 📦 **Chore**: housekeeping  
+  > “Bump dependency versions; remove unused package”
+- ⏪ **Revert**: revert a prior PR  
+  > “Revert PR #456 due to regression in telemetry export”
+
+---
+
+#### Description
+Explain the change in plain English. Aim for:
+- **What** you changed
+- **Why** you changed it
+- **What the user/system can do now**
+
+Example:
+> Adds a camera health endpoint and UI indicator so operators can see whether each camera is online and when the last frame was received. This reduces time-to-diagnose when perception fails due to camera dropout.
+
+---
+
+#### Related Tickets & Documents
+Link issues and docs so the PR is traceable. Use GitHub keywords to auto-close issues on merge.
+
+Examples:
+- `Closes #214` (Feature issue)
+- `Relates to #317` (bug, discussion, or follow-up)
+- `Depends on #455` (blocked until another PR/issue merges)
+- Links to design doc / spec / ADR:
+  - “Design notes: …”
+  - “Runbook update: …”
+
+Tip: If this PR implements a **Task**, also link that Task issue (and it should already be a sub-issue of the Feature).
+
+---
+
+#### Approach / Notes for reviewers
+Help reviewers focus their attention. Call out:
+- key design decisions
+- trade-offs
+- risky areas
+- what you want reviewed most
+
+Examples:
+- “Key logic is in `CameraHealthService::computeStatus()` — please sanity check thresholds.”
+- “I chose polling over callbacks to keep acquisition pipeline unchanged.”
+- “Main risk: false offline detection on slow networks; thresholds are configurable.”
+
+---
+
+#### How to test
+This is the most important section for review quality. Be explicit.
+
+Examples:
+- **Unit:** `./build/unit_tests --gtest_filter=CameraHealth*`
+- **Integration:** `./scripts/run_stack.sh` then `curl localhost:8080/health/cameras`
+- **Manual:** unplug camera → confirm UI shows **Degraded** in ~2s and **Offline** in ~10s
+
+Good pattern:
+- commands someone can copy/paste
+- expected output or observable behaviour
+- any test data needed and where to find it
+
+---
+
+#### Tests, Screenshots, Recordings
+Attach evidence where it helps reviewers:
+- screenshots of UI changes
+- logs showing new behaviour
+- short screen recording for workflows
+- benchmark numbers for performance PRs
+
+Example:
+- “Screenshot: camera widget states (online/degraded/offline)”
+- “Log excerpt: health endpoint output”
+- “Before/after FPS table (same dataset, same hardware)”
+
+---
+
+#### Added/updated tests?
+Be honest and specific.
+
+Examples:
+- 👍 **Yes**: “Added unit tests for status threshold logic; updated integration test to assert endpoint schema.”
+- 🙅 **No, and this is why**: “Pure documentation change.” / “Spike/prototype only; will add tests in follow-up Feature.”
+- 🙋 **I need help**: “Not sure how to mock the camera pipeline; suggestions welcome.”
+- ❌ **Not required**: “Formatting-only change; no behaviour impact.”
+
+---
+
+#### Added to documentation?
+Tick where you documented the change.
+
+Examples:
+- 📜 **README.md**: “New env var `CAM_HEALTH_TIMEOUT_MS` and local test steps”
+- 🦆 **In Code**: “Added docstring + comments around thresholds”
+- 🙈 **No Documentation Required**: only if truly internal/no user impact
+
+---
+
+#### Risk of rollout
+This is for reviewers and release planning. Choose the highest plausible risk.
+
+Examples:
+- 🟢 **Low**: refactor with no behaviour change + strong test coverage
+- 🟠 **Medium**: affects a shared module; may impact runtime behaviour; needs careful review
+- 🔴 **High**: touches safety/control paths, data loss risk, migration required, or hard-to-revert changes
+
+If 🟠/🔴, add a line in “Approach / Notes” describing mitigation:
+- feature flag
+- staged rollout
+- rollback plan
+- additional monitoring
+
+---
+
+#### Post-merge tasks (optional)
+Only check if there’s real follow-up work required **after** merge.
+
+Examples:
+- “Deploy to staging and verify telemetry export for 24 hours”
+- “Update Grafana dashboard to include new health metrics”
+- “Run migration script on production database”
+
+---
+
+##### Review-friendly PR size guideline
+Prefer PRs that can be reviewed in **15–30 minutes**. If it’s too large:
+- split into separate PRs (refactor → feature → cleanup)
+- or split work into multiple Tasks/PRs under the same Feature
 
 ---
 
