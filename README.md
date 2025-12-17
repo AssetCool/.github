@@ -7,7 +7,6 @@ These defaults apply across the organisation, but can be **overridden in an indi
 
 Use the template that best matches the size and intent of the work:
 
-- [Which issue type should I use?](#which-issue-type-should-i-use)
 - [🗺️ Epic](#️epic)
 - [💡 Feature](#feature)
 - [🧩 Task](#task)
