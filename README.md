@@ -88,6 +88,8 @@ Example:
   - Operator can view current state + last command result
   - Basic faults visible + clear error messages
 
+---
+
 **Telemetry pipeline v2**
 - Outcome: “As support/on-call, we can trust telemetry is captured, searchable, and exportable during incidents.”
 - Likely Features:
@@ -95,12 +97,16 @@ Example:
   - Buffering/retry when offline
   - Schema/versioning so fields don’t silently break
 
+---
+
 **Reliability & watchdog improvements**
 - Outcome: “The system detects failures quickly and recovers automatically with clear diagnostics.”
 - Likely Features:
   - Service health endpoint + status page
   - Watchdog integration + restart policy
   - Alerting when telemetry stops / critical services restart
+
+---
 
 ✅ After creating the Epic, add it to the appropriate **Project** (right-hand sidebar → **Projects**) and create the Features as **sub-issues** of the Epic.
 
@@ -272,7 +278,9 @@ Screenshots / Logs: supporting evidence (error text, stack traces, photos, etc.)
 
 Fix criteria: how we’ll know it’s fixed (e.g., no longer repros; regression test added).
 
-More descriptive examples:
+Examples:
+
+---
 
 **“Pump start command returns ‘OK’, but the pump never starts.”**
 
@@ -286,6 +294,8 @@ More descriptive examples:
 
 - Logs: include CAN frames / controller logs
 
+---
+
 **“Telemetry drops out after ~10 minutes of running.”**
 
 - Reproduction: run system for 10–15 mins → telemetry stream stops
@@ -298,6 +308,8 @@ More descriptive examples:
 
 - Logs: MQTT client logs
 
+---
+
 **“Clicking ‘Save settings’ crashes the app.”**
 
 - Reproduction: open Settings → change parameter → click Save
@@ -309,6 +321,8 @@ More descriptive examples:
 - Evidence: screenshot/video + stack trace
 
 - Fix criteria: add regression test; no crash; settings persist across restart
+
+---
 
 ## Support
 
