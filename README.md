@@ -85,7 +85,7 @@ Example:
 
 ---
 
-**Remote operations MVP***
+**Remote operations MVP**
 - Outcome: “As a field operator, I can perform the core remote actions safely and verify they happened.”
 - Likely Features:
   - Operator can start/stop pump remotely (happy path)
