@@ -1,5 +1,5 @@
 name: "🐛 Bug Report"
-description: Create a new ticket for a bug.
+description: Create a new issue for a bug.
 title: "🐛 [BUG] - <title>"
 labels: ["bug"]
 
@@ -8,7 +8,7 @@ body:
     id: related_feature
     attributes:
       label: "Related Feature (optional)"
-      description: "If this bug belongs to a feature, paste #123 or a full issue URL."
+      description: "If this bug belongs to a known Feature, paste #123 or a full issue URL."
       placeholder: "#123"
     validations:
       required: false
@@ -27,8 +27,8 @@ body:
     attributes:
       label: "Expected vs actual behaviour"
       placeholder: |
-        Expected:
-        Actual:
+        Expected behaviour:
+        Actual behaviour:
     validations:
       required: true
 
