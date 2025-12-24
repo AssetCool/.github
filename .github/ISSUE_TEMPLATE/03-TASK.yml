@@ -9,6 +9,7 @@ body:
       value: |
         **Tasks are engineering deliverables** (implementation work that supports a Feature).
         Best practice: create this Task *from the Feature* using **Create sub-issue** so the hierarchy is correct.
+        (Once a feature is created, a `Create sub-issue` button is added above the `comments` section)
 
   - type: input
     id: feature_link
@@ -25,8 +26,7 @@ body:
       label: "Task goal"
       description: "One or two sentences describing what will be delivered."
       placeholder: |
-        Implement/Update/Refactor ...
-        Notes on expected behaviour:
+        Implement/Update/Refactor <thing> to <outcome>.
     validations:
       required: true
 
@@ -48,8 +48,9 @@ body:
       label: "Implementation notes / links (optional)"
       placeholder: |
         - Approach:
-        - Dependencies:
+        - Dependencies and Pre-requisites:
         - Related PRs/issues:
+        - Edge cases to consider:
     validations:
       required: false
 
@@ -61,3 +62,4 @@ body:
         - label: "Work merged/commits made if part of a larger PR"
         - label: "Tests added/updated (if applicable)"
         - label: "Docs updated (if applicable)"
+        - label: "The ticket has a readable title and description matches what was done"
