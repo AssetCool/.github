@@ -1,6 +1,6 @@
 name: "🗺️ Epic"
 description: A multi-sprint outcome delivered through multiple Features
-title: "🗺️ [EPIC] - <outcome>"
+title: "🗺️ [EPIC] - <outcome>" 
 labels: ["epic"]
 
 body:
@@ -21,7 +21,7 @@ body:
         - (What will be possible / improved when this epic is done?)
 
         Stakeholders / users impacted:
-        - (Operator / customer / support / developer / etc.)
+        - (Operator / customer / support / developer / engineer / quality control / etc.)
 
         Why now:
         - (What’s driving this? deadline, incident trend, customer need, risk reduction)
@@ -53,8 +53,7 @@ body:
     attributes:
       label: "Exit criteria (definition of done)"
       description: "Clear conditions for closing this Epic."
-      value: |
-        - Planned Features created and completed (as sub-issues)
+      placeholder: |
         - User-facing acceptance criteria met for each Feature
         - Operational readiness complete (docs/runbooks/alerts updated if needed)
         - Any success metric targets met (if defined)

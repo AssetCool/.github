@@ -21,7 +21,7 @@ $labels = @(
   }
 )
 
-& $gh repo list $ORG --limit 1000 --private --json nameWithOwner --jq '.[].nameWithOwner' |
+& $gh repo list $ORG --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner' |
 ForEach-Object {
   $REPO = $_
 
