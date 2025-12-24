@@ -1,6 +1,6 @@
 name: "🗺️ Epic"
 description: A multi-sprint outcome delivered through multiple Features
-title: "🗺️ [EPIC] - <outcome>" 
+title: "🗺️ [EPIC] - <outcome>"
 labels: ["epic"]
 
 body:
@@ -8,7 +8,8 @@ body:
     attributes:
       value: |
         **Epics are outcomes** (usually multi-sprint) delivered through multiple **Features**.
-        Use this to describe the *why* and *what “done” looks like*, then create Features as **sub-issues** of this Epic.
+        Use this to describe the *why* and *what “done” looks like*, then create Features as **sub-issues** of this
+        Epic.
         Avoid using an Epic as a general “bucket” for unrelated work — keep it one coherent outcome.
 
   - type: textarea

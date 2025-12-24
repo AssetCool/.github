@@ -9,7 +9,7 @@ body:
       value: |
         **Tasks are engineering deliverables** (implementation work that supports a Feature).
         Best practice: create this Task *from the Feature* using **Create sub-issue** so the hierarchy is correct.
-        (Once a feature is created, a `Create sub-issue` button is added above the `comments` section) 
+        (Once a feature is created, a `Create sub-issue` button is added above the `comments` section)
 
   - type: input
     id: feature_link
@@ -36,7 +36,7 @@ body:
       label: "Verification / how to test (optional)"
       description: "How should someone verify this task is done?"
       placeholder: |
-        - Steps to verify: 
+        - Steps to verify:
         - Tests to run:
         - Expected result:
     validations:

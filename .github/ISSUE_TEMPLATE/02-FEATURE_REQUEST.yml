@@ -10,7 +10,7 @@ body:
         **Features carry the user story + user-facing acceptance criteria.**
         Break the Feature into Tasks (as sub-issues).
         Best practice: create this Feature *from the Epic* using **Create sub-issue** so the hierarchy is correct.
-        (Once an epic is created, a `Create sub-issue` button is added above the `comments` section) 
+        (Once an epic is created, a `Create sub-issue` button is added above the `comments` section)
 
   - type: textarea
     id: user_story
