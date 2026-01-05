@@ -70,6 +70,7 @@ body:
         - "High"
         - "Normal"
         - "Low"
+      default: 2
     validations:
       required: true
 
