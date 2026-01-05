@@ -66,9 +66,9 @@ body:
     attributes:
       label: "Epic Priority"
       options:
+        - "Normal"
         - "Urgent"
         - "High"
-        - "Normal"
         - "Low"
     validations:
       required: true
