@@ -66,10 +66,11 @@ body:
     attributes:
       label: "Epic Priority"
       options:
-        - "Normal"
         - "Urgent"
         - "High"
+        - "Normal"
         - "Low"
+      default: 2
     validations:
       required: true
 
