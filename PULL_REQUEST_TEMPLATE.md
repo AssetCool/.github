@@ -54,7 +54,11 @@ automatically close the issue.
 
 _Please replace this line with instructions on how to test your changes, a note
 on the test setup if applicable, as well as a demonstration of the tested changes
-with any relevant images._
+with any relevant images.
+
+Consider refering back to referring back to the Acceptance Criteria defined for the 
+original github issue. This can then act as a guide as to whether the reviewer
+determines the feature/bug to be complete._
 
 ## Added/updated tests?
 
