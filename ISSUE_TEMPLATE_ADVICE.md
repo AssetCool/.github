@@ -252,9 +252,9 @@ Below are the same examples explaining what “good” looks like for the fields
 ✅ After creating the Feature, add it to the appropriate **Project** using the right-hand sidebar → **Projects**.  
 N.B. If you have linked the Feature to a Parent Epic that is already part of this project, the Feature should inherit this.
 
-At Sprint Planning, once the issue is moved to **Ready**, please ensure that a **Priority** is assigned and an **Estimate** is given (using your team guide). If you’re not sure which Project to use, email engineering@assetcool.com.
+At Sprint Planning, once the issue is moved to **Ready**, please ensure that a **Priority** is assigned and an **Estimate** is given (see the guide below). If you’re not sure which Project to use, email engineering@assetcool.com.
 
-#### Story point estimation guide
+### Story point estimation guide
 
 **Story points are relative (not hours).** Use them to express overall effort/complexity/uncertainty.
 
