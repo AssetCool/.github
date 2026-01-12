@@ -1,0 +1,78 @@
+name: "📦 Chore"
+description: Maintenance / housekeeping work (dependencies, tooling, cleanup)
+title: "📦 [CHORE] - <short title>"
+labels: ["chore"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Chores are maintenance work** (not user-visible features and not bug fixes).
+        Examples: dependency bumps, tooling updates, cleanup, formatting, build tweaks.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "What needs doing and why?"
+      value: |
+        What:
+        - …
+
+        Why:
+        - …
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: "Scope / boundaries"
+      description: "What is included / excluded?"
+      value: |
+        In scope:
+        - …
+
+        Out of scope:
+        - …
+    validations:
+      required: false
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: "Verification / how to confirm (optional)"
+      description: "How should we confirm this chore didn’t break anything?"
+      value: |
+        - Build:
+        - Tests:
+        - Manual checks:
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      options:
+        - "P0 - Critical (blocker)"
+        - "P1 - High"
+        - "P2 - Medium"
+        - "P3 - Low"
+    validations:
+      required: true
+
+  - type: input
+    id: related_work
+    attributes:
+      label: "Related issues/PRs (optional)"
+      description: "Paste issue numbers/URLs (e.g. #123)."
+      placeholder: "#123"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ✅ **After creating this issue:** please add it to the appropriate _Project_ using the right-hand sidebar → _Projects_.
+        If you’re not sure which Project to use, email engineering@assetcool.com.
