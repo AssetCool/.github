@@ -1,8 +1,7 @@
 name: Post issue guidance comment
 
 on:
-  issues:
-    workflow_call:
+  workflow_call:
 
 permissions:
   issues: write
