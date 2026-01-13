@@ -2,7 +2,7 @@ name: Auto-link Feature to Epic (sub-issue)
 
 on:
   issues:
-    workflow_call:
+    types: [opened, edited]
 
 permissions:
   issues: write

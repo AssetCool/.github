@@ -2,7 +2,7 @@ name: Post issue guidance comment
 
 on:
   issues:
-    workflow_call:
+    types: [opened, edited]
 
 permissions:
   issues: write

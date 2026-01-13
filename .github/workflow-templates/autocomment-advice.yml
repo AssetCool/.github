@@ -1,9 +1,0 @@
-name: Link Feature → Epic
-on:
-  issues:
-    types: [opened, edited]
-
-jobs:
-  link:
-    uses: AssetCool/.github/.github/workflows/_autocomment-advice.yml@main
-    secrets: inherit
