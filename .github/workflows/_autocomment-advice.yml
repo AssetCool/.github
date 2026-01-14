@@ -10,9 +10,7 @@ permissions:
 
 jobs:
   guide:
-    runs-on:
-      group: Jetson
-      labels: [self-hosted, ARM64, Jetson]
+    runs-on: ubuntu-latest
     steps:
       - name: Post guide comment
         uses: actions/github-script@v7

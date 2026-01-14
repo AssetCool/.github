@@ -10,9 +10,7 @@ permissions:
 
 jobs:
   link:
-    runs-on:
-      group: Jetson
-      labels: [self-hosted, ARM64, Jetson]
+    runs-on: ubuntu-latest
     steps:
       - name: Link Feature as sub-issue of Epic
         uses: actions/github-script@v7
