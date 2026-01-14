@@ -1,7 +1,8 @@
 name: Post issue guidance comment
 
 on:
-  push:
+  issues:
+    types: [opened, edited]
   workflow_call:
 
 permissions:
