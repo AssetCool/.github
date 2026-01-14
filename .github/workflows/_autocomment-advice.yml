@@ -1,6 +1,7 @@
 name: Post issue guidance comment
 
 on:
+  push:
   workflow_call:
 
 permissions:
