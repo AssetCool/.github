@@ -1,0 +1,178 @@
+name: "🧰 Technical Debt"
+description: "Record work that improves maintainability, reliability, performance, or reduces future engineering cost."
+title: "🧰 [DEBT] <short description>"
+labels:
+  - tech-debt
+  - maintenance
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Technical Debt
+        Use this when we need to clean up, refactor, harden, simplify, or correct a design compromise.
+        The goal is to make the *impact* and *paydown plan* clear.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A clear one-paragraph explanation of the debt and where it lives.
+      placeholder: |
+        Example:
+        Camera pipeline restart logic is duplicated in 3 places and diverging.
+        This makes fixes risky and increases restart frequency in the field.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_state
+    attributes:
+      label: Current state / Evidence
+      description: What is happening today? Include logs, screenshots, file paths, metrics, error messages, profiling results, etc.
+      placeholder: |
+        - File(s): src/camera/Controller.cpp, src/camera/RestartManager.cpp
+        - Evidence: frequent restarts after VIC scale error
+        - Logs: [paste snippet]
+    validations:
+      required: true
+
+  - type: textarea
+    id: root_cause
+    attributes:
+      label: Root cause / Why this is debt
+      description: What decision, compromise, or constraint created this debt?
+      placeholder: |
+        Example:
+        A quick fix was added during field testing to unblock a demo, but it now violates SRP and makes behaviour hard to reason about.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Debt category
+      options:
+        - Refactor / Architecture
+        - Reliability / Robustness
+        - Performance / Efficiency
+        - Test coverage gap
+        - CI/CD / DevOps / Tooling
+        - Dependency / Upgrade
+        - Documentation gap
+        - Security hardening
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area / Component
+      description: Where does this live?
+      options:
+        - bot_system
+        - camera_system
+        - firmware / microcontroller
+        - mobile app
+        - cloud / AWS
+        - build / tooling
+        - docs / process
+        - other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      description: How painful is this right now?
+      options:
+        - High (blocks work / causes outages)
+        - Medium (slows development / causes frequent bugs)
+        - Low (annoying but tolerable)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk if ignored
+      description: What is the likely consequence if we leave it?
+      options:
+        - High (safety/reliability risk, major regressions likely)
+        - Medium (increasing instability or cost over time)
+        - Low (mostly quality-of-life)
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_approach
+    attributes:
+      label: Proposed paydown approach
+      description: What should we do to fix it? Include constraints and a rough plan.
+      placeholder: |
+        Example:
+        - Create RestartPolicy interface
+        - Centralise restart thresholds and backoff strategy
+        - Add integration tests to validate restart behaviour under simulated failures
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: What does “done” look like? Be specific and testable.
+      placeholder: |
+        - [ ] No duplicated restart logic across modules
+        - [ ] Unit tests cover backoff and max-restart guard
+        - [ ] Restart rate reduced by X in soak test
+        - [ ] Docs updated (README / diagram)
+    validations:
+      required: true
+
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: Non-goals / Out of scope
+      description: Prevent scope creep—what will NOT be addressed in this ticket?
+      placeholder: |
+        Example:
+        - Not redesigning the entire camera pipeline
+        - Not changing encoding format or transport layer
+    validations:
+      required: false
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Effort estimate
+      description: Rough sizing for planning.
+      options:
+        - XS (≤ 2 hours)
+        - S (≤ 1 day)
+        - M (2–3 days)
+        - L (1 week)
+        - XL (multi-week)
+    validations:
+      required: true
+
+  - type: input
+    id: related_links
+    attributes:
+      label: Related links (issues / PRs / docs)
+      description: Paste links to anything relevant.
+      placeholder: "Example: #123, PR #456, docs/design.md"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: quality_gate
+    attributes:
+      label: Quality gate
+      description: Tick what will apply to this work.
+      options:
+        - label: "I will add/extend tests where feasible"
+        - label: "I will update documentation where it improves maintainability"
+        - label: "I will avoid large PRs by splitting work into reviewable chunks"
