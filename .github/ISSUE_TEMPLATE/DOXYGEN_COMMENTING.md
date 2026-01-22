@@ -1,4 +1,4 @@
-# Doxygen-Style Code Documentation Guide (C++ + Python)
+# Doxygen-Style Code Documentation Guide (C++ and Python)
 
 A practical, “keep it simple” guide for documenting code with **Doxygen-style comments** so humans (and future you) can navigate an API quickly.
 
