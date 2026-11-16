@@ -118,6 +118,13 @@ console.log(JSON.stringify(eval(code)));
             )
             self.assertNotEqual(result.returncode, 0)
 
+    def test_persistent_runner_only_accepts_trusted_pushes_and_dispatches(self):
+        events = yaml.safe_load(
+            (ROOT / ".github/workflows/validate-runner-routing.yml").read_text()
+        )[True]
+        self.assertEqual(set(events), {"push", "workflow_dispatch"})
+        self.assertEqual(events["push"]["branches"], ["main"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -4,13 +4,6 @@ name: Validate runner routing
 # a feature branch explicitly trusts that revision on the persistent runner.
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - ".github/workflows/**"
-      - "tests/**"
-      - ".github/runner-routing/**"
-      - "pyproject.toml"
-      - "uv.lock"
   push:
     branches: [main]
     paths:
@@ -24,13 +17,6 @@ permissions:
 
 jobs:
   validate:
-    # Only Liz's same-repository candidates may execute automatically on this
-    # persistent pool. Other writers can explicitly trust a manual dispatch.
-    if: >-
-      github.event_name != 'pull_request' ||
-      (github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.user.login == 'liz-assetcool' &&
-      github.actor == 'liz-assetcool')
     runs-on:
       group: Jetson
       labels: [self-hosted, Jetson]

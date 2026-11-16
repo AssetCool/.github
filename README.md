@@ -58,8 +58,9 @@ permission contracts. actionlint validates workflow expression syntax.
 
 The `Validate runner routing` workflow uses only self-hosted Jetson runners.
 Writers can dispatch it on a completed feature branch to trust that revision;
-it also checks Liz's same-repository PRs and relevant pushes to main.
-Fork PRs and other actors cannot execute candidates automatically.
+it also checks relevant pushes to main. There is no PR event on this workflow:
+a PR can change its own workflow definition, so job conditions are insufficient
+to protect persistent runners from untrusted PR code.
 If a selected group is unavailable, jobs wait; there is no hosted fallback for
 an explicit self-hosted selection. To recover, restore the caller's previous
 reviewed workflow reference and inputs together. This change is proposed until
