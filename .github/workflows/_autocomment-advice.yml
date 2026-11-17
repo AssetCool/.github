@@ -4,13 +4,30 @@ on:
   issues:
     types: [opened, edited]
   workflow_call:
+    inputs:
+      runner-group:
+        description: Optional runner group; omitted for existing hosted routing
+        type: string
+        required: false
+        default: ""
+      runner-labels:
+        description: JSON array of required runner labels
+        type: string
+        required: false
+        default: '["ubuntu-latest"]'
 
 permissions:
   issues: write
 
 jobs:
   guide:
-    runs-on: ubuntu-latest
+    # Direct issue events have no inputs; preserve their existing routing.
+    # Encode the group as JSON so quotes cannot corrupt the runs-on object.
+    runs-on: >-
+      ${{ inputs.runner-group &&
+          fromJSON(format('{{"group":{0},"labels":{1}}}',
+          toJSON(inputs.runner-group), inputs.runner-labels || '["ubuntu-latest"]')) ||
+          fromJSON(inputs.runner-labels || '["ubuntu-latest"]') }}
     steps:
       - name: Post guide comment
         uses: actions/github-script@v7
